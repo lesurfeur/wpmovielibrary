@@ -118,10 +118,13 @@ class WPML_Details_Widget extends WPML_Widget {
 		$movies = WPML_Settings::wpml__movie_rewrite();
 
 		if ( ! empty( $details ) ) {
-
+		
+			$items = array();
 			$this->widget_css .= " wpml-{$detail}-widget";
 
-			$items = array();
+			if ( $css )
+				$this->widget_css .= ' wpml-list custom';			
+			
 			foreach ( $details as $slug => $_title ) {
 
 				$_slug = ( $rewrite ? __( $slug, 'wpmovielibrary' ) : $slug );
